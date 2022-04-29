@@ -16,11 +16,17 @@ use App\Http\Controllers\OneController;
 */
 
 Route::view('/create','create');
-Route::get('/',[OneController::class,'read']);
-Route::get('edit/{id}',[OneController::class,'edit']);
-Route::post('save',[OneController::class,'save']);
+// Route::get('/',[OneController::class,'read']);
+Route::get('update/{id}',[OneController::class,'update']);
+Route::post('save',[OneController::class,'create']);
 Route::post('save/{id}',[OneController::class,'esave']);
-Route::post('delete/{id}',[OneController::class,'delete']);
+Route::get('delete/{id}',[OneController::class,'delete']);
+// Route::get('/home',[OneController::class,'read']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'read'])->name('home');

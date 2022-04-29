@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+  
     <div class='row'>
         <a href="/create" class="btn btn-success">Add</a href="/create">
     </div>
@@ -26,7 +27,7 @@
       <th scope="row">{{$a->id}}</th>
       <td>{{$a->name}}</td>
       <td>
-        <a class='btn btn-danger' href="edit/{{$a->id}}">Edit</a>
+        <a class='btn btn-danger' href="update/{{$a->id}}">Edit</a>
         <a class='btn btn-primary' href="delete/{{$a->id}}">Delete</a>
       </td>
     </tr>
@@ -34,4 +35,4 @@
   </tbody>
 </table>
 </body>
-</html>
+</html> -->

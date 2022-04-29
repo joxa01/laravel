@@ -13,8 +13,11 @@
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
-            <input type="text" name="{{$data->name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" value="{{$data->name}}" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
+        @error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 

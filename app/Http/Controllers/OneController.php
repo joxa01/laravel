@@ -3,37 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\One;
 
 class OneController extends Controller
 {
-    public function read()
+  
+    public function create(Request $request)
     {
-        $data = Ones::All();
-        return view ('read',['data'=>$data]);
-    }
-    public function save(Request $request)
-    {
-        $data = new Ones();
+        $validated = $request->validate([
+            'name' => 'required|unique:ones|max:10|min:4',
+        ]);
+        $data = new One();
         $data->name=$request->name;
-        $data->save;
-        return redirect('/');        
+        $data->save();
+        return redirect('/home');        
     }
     public function esave(Request $request,$id)
     {
-        $data = Ones::find($id);
+        $validated = $request->validate([
+            'name' => 'required|unique:ones|max:10|min:4',
+        ]);
+        $data = One::find($id);
         $data->name=$request->name;
-        $data->save;
-        return redirect('/');   
+        $data->save();
+        return redirect('/home');   
     }
-    public function edit(Request $request,$id)
+    public function update(Request $request,$id)
     {
-        $data = Ones::find($id);         
-        return view('edit',['$data=>$data']);        
+       
+        $data = One::find($id);         
+        return view('update',['data'=>$data]);        
     }
     public function delete(Request $request,$id)
     {
-        $data = Ones::find($id)->delete();
-        return redirect('/') ;        
+        $data = One::find($id)->delete();
+        return redirect('/home') ;        
     }
 }
 
